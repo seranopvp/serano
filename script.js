@@ -1,11 +1,17 @@
-// Sélection de tous les boutons
-const buttons = document.querySelectorAll(".sound");
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Audio</title>
+</head>
+<body>
+  <button id="btn">Test Son</button>
 
-// Pour chaque bouton
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    // Crée un nouvel audio à chaque clic (cela force le navigateur à charger et jouer le son)
-    const audio = new Audio(`sounds/${button.dataset.sound}.mp3`);
-    audio.play().catch(err => console.log("Erreur audio :", err));
-  });
-});
+  <script>
+    document.getElementById("btn").addEventListener("click", () => {
+      const audio = new Audio("sounds/aller-ftg.mp3");
+      audio.play().catch(err => console.log("Erreur audio :", err));
+    });
+  </script>
+</body>
+</html>
