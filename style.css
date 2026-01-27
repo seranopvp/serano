@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ffffff, #ff66cc);
+  background: linear-gradient(135deg, #1e1e1e, #121212);
   color: #fff;
   transition: background 0.3s, color 0.3s;
   overflow-x: hidden;
@@ -27,15 +27,15 @@ h1 {
   margin-bottom: 1.5rem;
   font-weight: 700;
   font-size: 2rem;
-  color: #ff1493;
-  text-shadow: 0 0 15px #ff149355;
+  color: #ff66cc;
+  text-shadow: 0 0 15px #ff66cc55;
   animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  0% { text-shadow: 0 0 10px #ff149355; }
-  50% { text-shadow: 0 0 20px #ff69b4aa; }
-  100% { text-shadow: 0 0 10px #ff149355; }
+  0% { text-shadow: 0 0 10px #ff66cc55; }
+  50% { text-shadow: 0 0 20px #ff66ccaa; }
+  100% { text-shadow: 0 0 10px #ff66cc55; }
 }
 
 .controls {
@@ -49,19 +49,19 @@ h1 {
 #stop-sounds {
   padding: 10px 20px;
   font-size: 16px;
-  background: linear-gradient(135deg, #ff69b4, #ff1493);
+  background: #ff5555;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.1s, background 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 10px #ff69b4;
+  box-shadow: 0 0 10px #ff5555;
 }
 
 #stop-sounds:hover {
-  background: linear-gradient(135deg, #ff1493, #ff69b4);
+  background: #ff0000;
   transform: scale(1.1);
-  box-shadow: 0 0 20px #ff1493;
+  box-shadow: 0 0 20px #ff0000;
 }
 
 #counter {
@@ -71,7 +71,7 @@ h1 {
 
 @keyframes counterPulse {
   0% { transform: scale(1); color: #fff; }
-  50% { transform: scale(1.2); color: #ff1493; }
+  50% { transform: scale(1.2); color: #ffff00; }
   100% { transform: scale(1); color: #fff; }
 }
 
@@ -81,7 +81,6 @@ h1 {
   gap: 16px;
 }
 
-/* BOUTONS SON */
 .sound {
   padding: 20px;
   font-size: 16px;
@@ -89,7 +88,7 @@ h1 {
   border: none;
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(135deg, #ffb6c1, #ff1493);
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
   transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   position: relative;
@@ -112,7 +111,7 @@ h1 {
 .sound:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-  background: linear-gradient(135deg, #ff1493, #ffb6c1);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
 }
 
 .sound:active {
@@ -126,8 +125,8 @@ h1 {
 }
 
 @keyframes glowButton {
-  0% { box-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b455; }
-  100% { box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493aa; }
+  0% { box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc55; }
+  100% { box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffccaa; }
 }
 
 /* BLACKOUT TOTAL */
@@ -151,7 +150,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, #ff69b422, transparent 70%);
+  background: radial-gradient(circle at 50% 50%, #ff66cc22, transparent 70%);
   z-index: -1;
   animation: moveBg 10s linear infinite;
 }
