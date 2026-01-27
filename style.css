@@ -16,9 +16,9 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-body.blackout {
+body.nori {
   background: #000;
-  color: #fff;
+  color: transparent;           /* Texte invisible */
 }
 
 .container {
@@ -48,8 +48,14 @@ h1 {
   background: #222;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.1s, background 0.3s, box-shadow 0.3s;
+  transition: transform 0.1s, background 0.3s, box-shadow 0.3s, color 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+body.nori .sound {
+  background: #000;    /* Boutons noirs */
+  color: transparent;  /* Texte des boutons invisible */
+  box-shadow: none;
 }
 
 .sound:hover {
