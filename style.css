@@ -67,4 +67,21 @@ body.nori .sound {
 .sound:active {
   transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  /* ===== BLACKOUT TOTAL ===== */
+#blackout {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
 }
+
+#blackout.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+}
+
