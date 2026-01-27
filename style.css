@@ -1,4 +1,4 @@
-/* RESET & GLOBAL */
+/* RESET GLOBAL */
 * {
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
@@ -16,24 +16,49 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-body.nori {
-  background: #000;
-  color: transparent;           /* Texte invisible */
-}
-
 .container {
   text-align: center;
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
 }
 
 h1 {
-  margin-bottom: 2rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-shadow: 0 0 8px #ff00ff33;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ff66cc;
+  text-shadow: 0 0 10px #ff66cc55;
 }
 
+.controls {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#stop-sounds {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #ff5555;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.3s;
+}
+
+#stop-sounds:hover {
+  background: #ff0000;
+  transform: scale(1.05);
+}
+
+#counter {
+  font-size: 16px;
+}
+
+/* GRID BOUTONS */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -42,32 +67,28 @@ h1 {
 
 .sound {
   padding: 20px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 12px;
   border: none;
-  background: #222;
-  color: #fff;
   cursor: pointer;
-  transition: transform 0.1s, background 0.3s, box-shadow 0.3s, color 0.3s;
+  color: #fff;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  transition: transform 0.1s, box-shadow 0.2s, background 0.3s;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-body.nori .sound {
-  background: #000;    /* Boutons noirs */
-  color: transparent;  /* Texte des boutons invisible */
-  box-shadow: none;
-}
-
 .sound:hover {
-  background: #333;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
 }
 
 .sound:active {
   transform: scale(0.95);
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  /* ===== BLACKOUT TOTAL ===== */
+}
+
+/* BLACKOUT TOTAL */
 #blackout {
   position: fixed;
   inset: 0;
@@ -82,6 +103,3 @@ body.nori .sound {
   opacity: 1;
   pointer-events: all;
 }
-
-}
-
