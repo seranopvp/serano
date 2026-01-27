@@ -6,10 +6,6 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
   display: flex;
   justify-content: center;
@@ -23,11 +19,10 @@ body {
 
 .container {
   text-align: center;
-  max-width: 900px;
   width: 90%;
+  max-width: 800px;
 }
 
-/* TITRE */
 h1 {
   margin-bottom: 1.5rem;
   font-weight: 700;
@@ -43,7 +38,6 @@ h1 {
   100% { text-shadow: 0 0 10px #ff149355; }
 }
 
-/* CONTROLES */
 .controls {
   margin-bottom: 1.5rem;
   display: flex;
@@ -60,11 +54,12 @@ h1 {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.1s, background 0.3s, box-shadow 0.3s;
   box-shadow: 0 0 10px #ff69b4;
-  transition: all 0.3s;
 }
 
 #stop-sounds:hover {
+  background: linear-gradient(135deg, #ff1493, #ff69b4);
   transform: scale(1.1);
   box-shadow: 0 0 20px #ff1493;
 }
@@ -74,12 +69,16 @@ h1 {
   animation: counterPulse 0.3s;
 }
 
-/* GRILLE DE BOUTONS */
+@keyframes counterPulse {
+  0% { transform: scale(1); color: #fff; }
+  50% { transform: scale(1.2); color: #ff1493; }
+  100% { transform: scale(1); color: #fff; }
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 16px;
-  justify-items: center; /* centre chaque bouton horizontalement */
 }
 
 /* BOUTONS SON */
@@ -96,6 +95,20 @@ h1 {
   position: relative;
 }
 
+.sound::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #fff;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.sound:hover::after {
+  opacity: 0.3;
+}
+
 .sound:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.6);
@@ -107,6 +120,7 @@ h1 {
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
+/* effet glow quand le son joue */
 .sound.playing {
   animation: glowButton 0.8s infinite alternate;
 }
@@ -116,7 +130,7 @@ h1 {
   100% { box-shadow: 0 0 20px #ff1493, 0 0 40px #ff1493aa; }
 }
 
-/* BLACKOUT */
+/* BLACKOUT TOTAL */
 #blackout {
   position: fixed;
   inset: 0;
@@ -125,6 +139,11 @@ h1 {
   pointer-events: none;
   transition: opacity 0.2s ease;
   z-index: 9999;
+}
+
+#blackout.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* fond animé subtil */
@@ -142,4 +161,3 @@ body::before {
   50% { transform: translate(30px,30px); }
   100% { transform: translate(0,0); }
 }
-
