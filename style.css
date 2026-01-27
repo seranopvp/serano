@@ -86,7 +86,7 @@ h1 {
   border: none;
   cursor: pointer;
   color: #fff;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg, #EEAECA, #FF0059);
   transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
   position: relative;
@@ -109,7 +109,7 @@ h1 {
 .sound:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0,0,0,0.6);
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  background: linear-gradient(135deg, #FF0059, #EEAECA);
 }
 
 .sound:active {
@@ -158,5 +158,6 @@ body::before {
   50% { transform: translate(30px,30px); }
   100% { transform: translate(0,0); }
 }
+
 
 
