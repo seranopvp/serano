@@ -4,7 +4,7 @@ let counter = 0;
 const counterDisplay = document.getElementById("counter");
 let playingAudios = [];
 
-// Jouer son
+// Jouer son avec effet glow
 buttons.forEach(button => {
   button.addEventListener("click", () => {
     const audio = new Audio(`sounds/${button.dataset.sound}.mp3`);
@@ -14,10 +14,14 @@ buttons.forEach(button => {
     // compteur
     counter++;
     counterDisplay.textContent = `Sons joués : ${counter}`;
+    counterDisplay.style.animation = "counterPulse 0.3s";
+    setTimeout(() => counterDisplay.style.animation = "", 300);
 
-    // supprimer audio de la liste quand fini
+    // effet glow sur bouton
+    button.classList.add("playing");
     audio.addEventListener("ended", () => {
       playingAudios = playingAudios.filter(a => a !== audio);
+      button.classList.remove("playing");
     });
   });
 });
@@ -31,6 +35,7 @@ function stopAll() {
     a.currentTime = 0;
   });
   playingAudios = [];
+  buttons.forEach(b => b.classList.remove("playing"));
 }
 
 stopBtn.addEventListener("click", stopAll);
