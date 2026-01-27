@@ -1,0 +1,52 @@
+/* Reset et style global */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+}
+
+h1 {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.sound {
+  padding: 20px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.sound:hover {
+  background: #333;
+}
+
+.sound:active {
+  transform: scale(0.95);
+}
