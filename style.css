@@ -14,7 +14,6 @@ body {
   background: linear-gradient(135deg, #1e1e1e, #121212);
   color: #fff;
   transition: background 0.3s, color 0.3s;
-  overflow-x: hidden;
 }
 
 .container {
@@ -160,3 +159,4 @@ body::before {
   50% { transform: translate(30px,30px); }
   100% { transform: translate(0,0); }
 }
+
