@@ -8,9 +8,9 @@ buttons.forEach(button => {
   });
 });
 
-// ===== Touche K pour mode blackout =====
+// ===== Touche K pour mode Nori =====
 document.addEventListener("keydown", (e) => {
   if(e.key.toLowerCase() === "k") {
-    document.body.classList.toggle("blackout");
+    document.body.classList.toggle("nori");
   }
 });
