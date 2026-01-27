@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ffffff, #ff66cc);
+  background: linear-gradient(135deg, #26151c, #5e042b);
   color: #fff;
   overflow: hidden;
 }
@@ -31,7 +31,7 @@ h1 {
   margin-bottom: 1.5rem;
   font-weight: 700;
   font-size: 2rem;
-  color: #ff1493;
+  color: #fff;
   text-shadow: 0 0 15px #ff149355;
   animation: glow 2s infinite alternate;
 }
@@ -141,3 +141,4 @@ body::before {
   50% { transform: translate(30px,30px); }
   100% { transform: translate(0,0); }
 }
+
