@@ -13,4 +13,14 @@ document.addEventListener("keydown", (e) => {
   if(e.key.toLowerCase() === "k") {
     document.body.classList.toggle("nori");
   }
+  // ===== BLACKOUT TOTAL (touche K) =====
+const blackout = document.getElementById("blackout");
+
+document.addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "k") {
+    blackout.classList.toggle("active");
+  }
 });
+
+});
+
