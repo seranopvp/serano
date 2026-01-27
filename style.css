@@ -27,7 +27,7 @@ h1 {
   margin-bottom: 1.5rem;
   font-weight: 700;
   font-size: 2rem;
-  color: #ff66cc;
+  color: #EEAECA;
   text-shadow: 0 0 15px #ff66cc55;
   animation: glow 2s infinite alternate;
 }
@@ -160,4 +160,5 @@ body::before {
   50% { transform: translate(30px,30px); }
   100% { transform: translate(0,0); }
 }
+
 
