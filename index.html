@@ -3,15 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat GPT</title>
+  <title>Serano Board</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<main class="container">
-  <h1>🎵 Serano Board</h1>
-  <h2>Soundboard instantané pour ceux qui veulent pas se faire tuer<br>Touche "k" = ecran noir , Touche "l" = mute son <h2>
+<!-- INTRO RIDEAU -->
+<div id="intro">
+  <div class="intro-content">
+    <h1 class="intro-title">🎵 Serano Board</h1>
+    <p class="intro-text">
+      Soundboard instantané pour ceux qui veulent pas se faire tuer<br><br>
+      <b>K</b> = écran noir<br>
+      <b>L</b> = mute son
+    </p>
+    <button id="enter-btn">J'entre</button>
+  </div>
+</div>
 
+<!-- BLACKOUT -->
+<div id="blackout"></div>
+
+<main class="container">
+  <h1 class="title glitch" data-text="🎵 Serano Board">🎵 Serano Board</h1>
+
+  <p class="subtitle">
+    Soundboard instantané pour ceux qui veulent pas se faire tuer<br>
+    <span>K = écran noir • L = mute</span>
+  </p>
 
   <div class="controls">
     <button id="stop-sounds">⏹️ Stop All</button>
@@ -43,8 +62,6 @@
     <button class="sound" data-sound="googoo-gaga_09PaEHZ">Googoo Gaga</button>
     <button class="sound" data-sound="unknown_sound_24181-audiotrimmer">Sleep Fart</button>
     <button class="sound" data-sound="chicken-on-tree-screaming">Poulet Hurlant sur son arbre</button>
-    <button class="sound" data-sound="le-cerano-est-tres-sale-jonathan-asterion">Serano</button>
-    <button class="sound" data-sound="castor-gritando">AHHH</button>
 
 
 <!-- blackout total -->
@@ -53,6 +70,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
