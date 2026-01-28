@@ -6,7 +6,12 @@
 }
 
 body {
-  background: black;
+  background: linear-gradient(
+    135deg,
+    #ff8ad8 0%,
+    #1a0012 40%,
+    #000000 100%
+  );
   color: white;
   overflow-x: hidden;
 }
@@ -175,3 +180,4 @@ body {
     transform: translateY(0);
   }
 }
+
