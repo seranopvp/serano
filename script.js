@@ -55,3 +55,15 @@ document.addEventListener("keydown", (e) => {
     blackout.classList.toggle("active");
   }
 });
+// INTRO SCREEN
+const intro = document.getElementById("intro");
+const enterBtn = document.getElementById("enter-btn");
+
+enterBtn.addEventListener("click", () => {
+  intro.classList.add("open");
+
+  setTimeout(() => {
+    intro.style.display = "none";
+  }, 1200);
+});
+
