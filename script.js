@@ -1,4 +1,4 @@
-let currentAudios = [];
+let audios = [];
 let count = 0;
 let muted = false;
 
@@ -16,14 +16,19 @@ document.querySelectorAll(".sound").forEach(btn => {
     if (muted) return;
 
     const sound = btn.dataset.sound;
-    const audio = new Audio(`sounds/${sound}.mp3`);
 
+    // Audio source de base
+    const baseAudio = new Audio(`sounds/${sound}.mp3`);
+
+    // Clone pour permettre la superposition
+    const audio = baseAudio.cloneNode();
+    audio.currentTime = 0;
     audio.play();
-    currentAudios.push(audio);
 
-    // Nettoyage automatique quand un son se termine
+    audios.push(audio);
+
     audio.addEventListener("ended", () => {
-      currentAudios = currentAudios.filter(a => a !== audio);
+      audios = audios.filter(a => a !== audio);
     });
 
     count++;
@@ -32,8 +37,11 @@ document.querySelectorAll(".sound").forEach(btn => {
 });
 
 document.getElementById("stop-sounds").addEventListener("click", () => {
-  currentAudios.forEach(audio => audio.pause());
-  currentAudios = [];
+  audios.forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+  audios = [];
 });
 
 document.addEventListener("keydown", e => {
@@ -43,7 +51,10 @@ document.addEventListener("keydown", e => {
 
   if (e.key.toLowerCase() === "l") {
     muted = !muted;
-    currentAudios.forEach(audio => audio.pause());
-    currentAudios = [];
+    audios.forEach(a => {
+      a.pause();
+      a.currentTime = 0;
+    });
+    audios = [];
   }
 });
