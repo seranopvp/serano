@@ -1,4 +1,4 @@
-let currentAudio = null;
+let currentAudios = [];
 let count = 0;
 let muted = false;
 
@@ -15,11 +15,16 @@ document.querySelectorAll(".sound").forEach(btn => {
   btn.addEventListener("click", () => {
     if (muted) return;
 
-    if (currentAudio) currentAudio.pause();
-
     const sound = btn.dataset.sound;
-    currentAudio = new Audio(`sounds/${sound}.mp3`);
-    currentAudio.play();
+    const audio = new Audio(`sounds/${sound}.mp3`);
+
+    audio.play();
+    currentAudios.push(audio);
+
+    // Nettoyage automatique quand un son se termine
+    audio.addEventListener("ended", () => {
+      currentAudios = currentAudios.filter(a => a !== audio);
+    });
 
     count++;
     counter.textContent = `Sons joués : ${count}`;
@@ -27,7 +32,8 @@ document.querySelectorAll(".sound").forEach(btn => {
 });
 
 document.getElementById("stop-sounds").addEventListener("click", () => {
-  if (currentAudio) currentAudio.pause();
+  currentAudios.forEach(audio => audio.pause());
+  currentAudios = [];
 });
 
 document.addEventListener("keydown", e => {
@@ -37,6 +43,7 @@ document.addEventListener("keydown", e => {
 
   if (e.key.toLowerCase() === "l") {
     muted = !muted;
-    if (currentAudio) currentAudio.pause();
+    currentAudios.forEach(audio => audio.pause());
+    currentAudios = [];
   }
 });
