@@ -3,17 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat GPT</title>
+  <title>Serano Board</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .speed-container {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    #speed {
+      -webkit-appearance: none;
+      width: 200px;
+      height: 6px;
+      background: #222;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    #speed::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
-<!-- INTRO RIDEAU -->
+<!-- INTRO -->
 <div id="intro">
   <div class="intro-content">
     <h1 class="intro-title">🎵 Serano Board</h1>
     <p class="intro-text">
-      Soundboard instantané pour ceux qui veulent pas se faire tuer<br><br>
+      Soundboard instantané<br><br>
       <b>K</b> = écran noir<br>
       <b>L</b> = mute son
     </p>
@@ -25,57 +53,65 @@
 <div id="blackout"></div>
 
 <main class="container">
-  <h1 class="title glitch" data-text="🎵 Serano Board">🎵 Serano Board</h1>
-
-  <p class="subtitle">
-    Soundboard instantané 
-  </p>
+  <h1 class="title">🎵 Serano Board</h1>
+  <p class="subtitle">Soundboard instantané</p>
 
   <div class="controls">
     <button id="stop-sounds">⏹️ Stop All</button>
     <span id="counter">Sons joués : 0</span>
   </div>
 
+  <!-- 🎛 SLIDER -->
+  <div class="speed-container">
+    <span>0.5</span>
+    <input type="range" id="speed" min="0.5" max="1" step="0.01" value="1">
+    <span id="speed-display">1x</span>
+  </div>
+
   <div class="grid">
     <button class="sound" data-sound="aller-ftg">Aller FTGL</button>
     <button class="sound" data-sound="brain-fart">Brain Fart</button>
-    <button class="sound" data-sound="brain-fart-slowed">Brain Fart Slowed</button>
-    <button class="sound" data-sound="fahhhhhhhhhhhhhh">Fah</button>
-    <button class="sound" data-sound="ahhh">Hurlement</button>      
-    <button class="sound" data-sound="Incident">Incident</button>
-    <button class="sound" data-sound="long-brain-fart">Long Brain Fart</button>
     <button class="sound" data-sound="mega-fart">Mega Fart</button>
-    <button class="sound" data-sound="perfect-fart">Perfect Fart</button>
-    <button class="sound" data-sound="peter-beat-box">Peter Beatbox</button>
-    <button class="sound" data-sound="tk78-rage-mais-arrete">MAIS ARRETE TK78</button>
-    <button class="sound" data-sound="wet-fart_1">Wet Fart</button>
-    <button class="sound" data-sound="wet-fart-squish">Wet Fart Squish</button>
-    <button class="sound" data-sound="Idrinksodaieatpizza">🥤🍕</button>
-    <button class="sound" data-sound="foxscreamfartclaque">🦊✋💨</button>
-    <button class="sound" data-sound="zowing">👽</button>
-    <button class="sound" data-sound="uaeh">UÆ</button>
-    <button class="sound" data-sound="skeleton-with-shield">Squelette Bouclier</button>
-    <button class="sound" data-sound="diarrhea">Diarrhé</button>
-    <button class="sound" data-sound="nuclear-diarrhea">Diarrhé Nucléaire</button>
-    <button class="sound" data-sound="nuclear-diarrhea2">Diarrhé Nucléaire Atomique</button>
-    <button class="sound" data-sound="googoo-gaga_09PaEHZ">Googoo Gaga</button>
-    <button class="sound" data-sound="unknown_sound_24181-audiotrimmer">Sleep Fart</button>
-    <button class="sound" data-sound="chicken-on-tree-screaming">Poulet Hurlant sur son arbre</button>
+  </div>
+</main>
 
+<script>
+let currentAudio = null;
+let counter = 0;
 
-<!-- blackout total -->
-<div id="blackout"></div>
+const speedSlider = document.getElementById("speed");
+const speedDisplay = document.getElementById("speed-display");
+const counterDisplay = document.getElementById("counter");
 
-<script src="script.js"></script>
+// Affichage vitesse
+speedSlider.addEventListener("input", function() {
+  speedDisplay.textContent = parseFloat(this.value).toFixed(2) + "x";
+  if (currentAudio) {
+    currentAudio.playbackRate = this.value;
+  }
+});
+
+// Boutons sons
+document.querySelectorAll(".sound").forEach(button => {
+  button.addEventListener("click", () => {
+    const sound = button.dataset.sound;
+
+    if (currentAudio) currentAudio.pause();
+
+    currentAudio = new Audio("sounds/" + sound + ".mp3");
+    currentAudio.playbackRate = speedSlider.value;
+    currentAudio.play();
+
+    counter++;
+    counterDisplay.textContent = "Sons joués : " + counter;
+  });
+});
+
+// Stop All
+document.getElementById("stop-sounds").addEventListener("click", () => {
+  if (currentAudio) currentAudio.pause();
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
